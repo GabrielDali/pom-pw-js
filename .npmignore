@@ -1,0 +1,20 @@
+node_modules
+npm-debug.log*
+yarn.lock
+pnpm-lock.yaml
+coverage
+.nyc_output
+.vscode
+.idea
+.DS_Store
+.env
+.env.*
+
+# Tests and test artifacts
+lib/**/*.test.js
+vitest.config.* 
+
+# Git and CI
+.git
+.github
+

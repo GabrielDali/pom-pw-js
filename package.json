@@ -1,0 +1,40 @@
+{
+    "name": "playwright-pom",
+    "version": "1.0.0-beta.1",
+    "description": "CLI generator for a Playwright JS/TS framework starter",
+    "type": "module",
+    "engines": {
+        "node": ">=18"
+    },
+    "files": [
+        "bin",
+        "lib",
+        "templates"
+    ],
+    "bin": {
+        "playwright-pom": "./bin/index.js",
+        "create-playwright-pom": "./bin/index.js"
+    },
+    "scripts": {
+        "start": "node ./bin/index.js",
+        "test": "vitest run",
+        "test:watch": "vitest"
+    },
+    "keywords": [
+        "playwright",
+        "cli",
+        "scaffold",
+        "generator",
+        "qa",
+        "page-object-model"
+    ],
+    "author": "Gabriel Dali <https://www.linkedin.com/in/gabriel-dali-qa/>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GabrielDali/playwright-pom.git"
+    },
+    "devDependencies": {
+        "vitest": "^4.0.18"
+    }
+}
