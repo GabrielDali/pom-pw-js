@@ -1,6 +1,6 @@
 {
     "name": "playwright-pom",
-    "version": "1.0.0-beta.1",
+    "version": "1.0.0-beta.3",
     "description": "CLI generator for a Playwright JS/TS framework starter",
     "type": "module",
     "engines": {
