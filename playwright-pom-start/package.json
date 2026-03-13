@@ -2,6 +2,16 @@
     "name": "create-playwright-pom-start",
     "version": "1.0.0",
     "description": "Scaffold a Playwright POM project (run via npm init playwright-pom-start)",
+    "keywords": [
+        "playwright",
+        "cli",
+        "scaffold",
+        "generator",
+        "qa",
+        "page-object-model",
+        "pom",
+        "npm-init"
+    ],
     "type": "module",
     "engines": {
         "node": ">=18"
@@ -15,6 +25,10 @@
     ],
     "author": "Gabriel Dali <https://www.linkedin.com/in/gabriel-dali-qa/>",
     "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GabrielDali/playwright-pom.git"
+    },
     "dependencies": {
         "playwright-pom": "1.0.0-beta.3"
     }
