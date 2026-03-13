@@ -1,4 +1,4 @@
-name: Test
+name: CI / Publish
 
 on:
   push:
@@ -25,3 +25,40 @@ jobs:
 
       - name: Run tests with coverage
         run: npm run test:coverage
+
+  publish:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check if version is already published
+        id: version_check
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          if npm view playwright-pom@$VERSION version 2>/dev/null; then
+            echo "already_published=true" >> $GITHUB_OUTPUT
+          else
+            echo "already_published=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish to npm
+        if: steps.version_check.outputs.already_published == 'false'
+        run: npm publish --provenance --access public
+
+      - name: Skip publish
+        if: steps.version_check.outputs.already_published == 'true'
+        run: echo "Version ${{ steps.version_check.outputs.version }} is already on npm. Skipping publish."
