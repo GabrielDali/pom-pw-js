@@ -25,3 +25,4 @@ Then you get a ready-to-use structure: `pages/`, `utils/`, `fixtures/`, base pag
 
 - **Install the CLI and run it:** `npm i playwright-pom` then `npx playwright-pom` or `npx playwright-pom my-project`
 - **Full docs:** [playwright-pom](https://www.npmjs.com/package/playwright-pom) on npm
+
