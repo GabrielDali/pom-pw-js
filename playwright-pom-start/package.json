@@ -1,6 +1,6 @@
 {
     "name": "create-playwright-pom-start",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Scaffold a Playwright POM project (run via npm init playwright-pom-start)",
     "keywords": [
         "playwright",
