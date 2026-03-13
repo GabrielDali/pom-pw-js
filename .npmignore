@@ -13,6 +13,7 @@ coverage
 # Tests and test artifacts
 lib/**/*.test.js
 vitest.config.* 
+assets/
 
 # Git and CI
 .git

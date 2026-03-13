@@ -16,6 +16,8 @@ Or with a project name:
 npm init playwright-pom-start my-playwright-project
 ```
 
+
+
 You’ll be prompted for:
 
 1. **Language** — JavaScript or TypeScript (arrow keys + Enter). Default is JS.
@@ -68,6 +70,22 @@ Or scaffold in a subfolder: `npx playwright-pom my-project`
 - Letters only (no numbers, `.js`/`.ts`, or symbols).
 - Converted to PascalCase + `Page` (e.g. `checkout` → `CheckoutPage`, `userProfile` → `UserProfilePage`).
 - Invalid tokens and existing files are skipped (reported in the console).
+
+**JavaScript based output project structure**
+
+![JavaScript based output project structure](https://raw.githubusercontent.com/GabrielDali/pom-pw-js/main/assets/01.png)
+
+**JavaScript based output created page example**
+
+![JavaScript based output created page example](https://raw.githubusercontent.com/GabrielDali/pom-pw-js/main/assets/02.png)
+
+**TypeScript based output project structure**
+
+![TypeScript based output project structure](https://raw.githubusercontent.com/GabrielDali/pom-pw-js/main/assets/03.png)
+
+**TypeScript based output created page example**
+
+![TypeScript based output created page example](https://raw.githubusercontent.com/GabrielDali/pom-pw-js/main/assets/04.png)
 
 ## Repository & docs
 
