@@ -8,11 +8,11 @@ export default defineConfig({
       reportsDirectory: './coverage',
       thresholds: {
         global: {
-          // Set just below current coverage to prevent regressions.
-          statements: 55,
-          branches: 55,
-          functions: 70,
-          lines: 55,
+          // CI fails if coverage drops below these.
+          statements: 80,
+          branches: 80,
+          functions: 80,
+          lines: 80,
         },
       },
     },
