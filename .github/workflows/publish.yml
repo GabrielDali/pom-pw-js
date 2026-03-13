@@ -7,6 +7,22 @@ on:
     branches: [main]
 
 jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      root: ${{ steps.filter.outputs.root }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            root:
+              - 'package.json'
+              - 'bin/**'
+              - 'lib/**'
+              - 'templates/**'
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -27,8 +43,8 @@ jobs:
         run: npm run test:coverage
 
   publish:
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && needs.changes.outputs.root == 'true'
+    needs: [changes, test]
     runs-on: ubuntu-latest
     permissions:
       id-token: write

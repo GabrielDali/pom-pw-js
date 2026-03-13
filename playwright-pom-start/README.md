@@ -89,7 +89,7 @@ Or scaffold in a subfolder: `npx playwright-pom my-project`
 
 ## Repository & docs
 
-- **GitHub:** [github.com/GabrielDali/pom-pw-js](https://github.com/GabrielDali/playwright-pom)
+- **GitHub:** [github.com/GabrielDali/pom-pw-js](https://github.com/GabrielDali/pom-pw-js)
 - **Main package (playwright-pom):** [npmjs.com/package/playwright-pom](https://www.npmjs.com/package/playwright-pom)
 
 ## Author & license
