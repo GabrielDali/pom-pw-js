@@ -71,6 +71,7 @@ Or scaffold in a subfolder: `npx playwright-pom my-project`
 - Converted to PascalCase + `Page` (e.g. `checkout` → `CheckoutPage`, `userProfile` → `UserProfilePage`).
 - Invalid tokens and existing files are skipped (reported in the console).
 
+
 **JavaScript based output project structure**
 
 ![JavaScript based output project structure](https://raw.githubusercontent.com/GabrielDali/pom-pw-js/main/assets/01.png)

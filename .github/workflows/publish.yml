@@ -76,6 +76,8 @@ jobs:
 
       - name: Publish playwright-pom to npm
         if: steps.version_check.outputs.already_published == 'false'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
 
       - name: Skip publish (already on npm)
@@ -112,6 +114,8 @@ jobs:
       - name: Publish create-playwright-pom-start to npm
         if: steps.version_check.outputs.already_published == 'false'
         working-directory: playwright-pom-start
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish --provenance --access public
 
       - name: Skip publish (already on npm)
