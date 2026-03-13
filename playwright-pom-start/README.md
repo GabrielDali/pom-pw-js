@@ -24,7 +24,7 @@ You’ll be prompted for:
 2. **Page names** — optional; space-separated, or Enter to skip. Names are normalized to PascalCase + `Page` (e.g. `dashboard` → `DashboardPage`).
 3. **Playwright** — installed automatically if missing.
 
-**Requirements:** Node.js **v18** or later. Supported on **Windows**, **macOS**, and **Linux**.
+**Requirements:** Node.js **v18** or later.
 
 ## Alternative: install then run
 

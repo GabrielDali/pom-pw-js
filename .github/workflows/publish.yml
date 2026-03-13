@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       root: ${{ steps.filter.outputs.root }}
+      start: ${{ steps.filter.outputs.start }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
@@ -22,6 +23,8 @@ jobs:
               - 'bin/**'
               - 'lib/**'
               - 'templates/**'
+            start:
+              - 'playwright-pom-start/**'
 
   test:
     runs-on: ubuntu-latest
@@ -42,7 +45,7 @@ jobs:
       - name: Run tests with coverage
         run: npm run test:coverage
 
-  publish:
+  publish-root:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push' && needs.changes.outputs.root == 'true'
     needs: [changes, test]
     runs-on: ubuntu-latest
@@ -71,10 +74,46 @@ jobs:
             echo "already_published=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Publish to npm
+      - name: Publish playwright-pom to npm
         if: steps.version_check.outputs.already_published == 'false'
         run: npm publish --provenance --access public
 
-      - name: Skip publish
+      - name: Skip publish (already on npm)
         if: steps.version_check.outputs.already_published == 'true'
-        run: echo "Version ${{ steps.version_check.outputs.version }} is already on npm. Skipping publish."
+        run: echo "playwright-pom@${{ steps.version_check.outputs.version }} already on npm. Skipping."
+
+  publish-start:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push' && needs.changes.outputs.start == 'true'
+    needs: [changes, test]
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Check if version is already published
+        id: version_check
+        working-directory: playwright-pom-start
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          if npm view create-playwright-pom-start@$VERSION version 2>/dev/null; then
+            echo "already_published=true" >> $GITHUB_OUTPUT
+          else
+            echo "already_published=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish create-playwright-pom-start to npm
+        if: steps.version_check.outputs.already_published == 'false'
+        working-directory: playwright-pom-start
+        run: npm publish --provenance --access public
+
+      - name: Skip publish (already on npm)
+        if: steps.version_check.outputs.already_published == 'true'
+        run: echo "create-playwright-pom-start@${{ steps.version_check.outputs.version }} already on npm. Skipping."
