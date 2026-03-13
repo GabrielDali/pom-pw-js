@@ -88,7 +88,7 @@ If the folder already has a scaffold (e.g. `pages/BasePage.js` or `pages/BasePag
 
 ## Development
 
-- **Repo:** [github.com/GabrielDali/playwright-pom](https://github.com/GabrielDali/pom-pw-js)
+- **Repo:** [github.com/GabrielDali/pom-pw-js](https://github.com/GabrielDali/pom-pw-js)
 - Work on the **test** branch; open a PR into **main**. GitHub Actions run `npm test` (Vitest, including `lib/helpers.test.js`) on push to **test** and on pull requests to **main** — merge only when the workflow passes.
 
 ## Author & license
