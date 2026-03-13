@@ -19,3 +19,10 @@ assets/
 .git
 .github
 
+# Linting and formatting
+.eslintrc.js
+.eslintignore
+.prettierrc
+.prettierignore
+vitest.config.mjs
+coverage/

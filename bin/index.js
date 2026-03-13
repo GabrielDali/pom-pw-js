@@ -6,11 +6,7 @@ import { fileURLToPath } from "url";
 import { askLanguage } from "../lib/prompt.js";
 import { getProjectPath } from "../lib/helpers.js";
 import { runScaffold, isAlreadyScaffolded } from "../lib/scaffold.js";
-import {
-  hasPlaywrightInstalled,
-  detectPlaywrightLang,
-  runInstallIfPresent,
-} from "../lib/playwright.js";
+import { detectPlaywrightLang, runInstallIfPresent } from "../lib/playwright.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const packageRoot = path.join(__dirname, "..");

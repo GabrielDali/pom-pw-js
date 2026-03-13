@@ -18,7 +18,9 @@
     "scripts": {
         "start": "node ./bin/index.js",
         "test": "vitest run",
-        "test:watch": "vitest"
+        "test:watch": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "lint": "eslint ."
     },
     "keywords": [
         "playwright",
@@ -35,6 +37,10 @@
         "url": "https://github.com/GabrielDali/pom-pw-js.git"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^8.57.0",
+        "@typescript-eslint/parser": "^8.57.0",
+        "@vitest/coverage-v8": "^4.1.0",
+        "eslint": "^10.0.3",
         "vitest": "^4.0.18"
     }
 }
