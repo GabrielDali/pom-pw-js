@@ -1,5 +1,5 @@
 <div align="center">
-  <h3>Playwright POM framework</h3>
+  <h1>Playwright POM framework</h1>
   <hr />
   <p><small>An open source CLI-tool for quick start with Page Object Model project and Playwright framework</small></p>
   <p>
@@ -9,46 +9,68 @@
   </p>
 </div>
 
+```bash
+npm init playwright-pom-start
+```
+
+## Table of Contents
+
+- [Why use this](#why-use-this)
+- [Getting started](#getting-started)
+  - [New project](#new-project)
+  - [Add pages to an existing project](#add-pages-to-an-existing-project)
+- [How it works](#how-it-works)
+- [Generated structure](#generated-structure)
+- [Page naming](#page-naming)
+- [Examples](#examples)
+- [Repository & docs](#repository--docs)
+- [Author & license](#author--license)
+
+## Why use this
+
+Playwright gives you a powerful testing API but no folder structure. As your test suite grows, tests start reaching directly into selectors and actions, which means one UI change can break many tests instead of one. Page Object Model fixes that by keeping each page's interactions in one place. Your tests only call methods, not raw selectors.
+
+Setting up POM manually means writing the same base class, the same folder layout, and the same boilerplate on every project. This CLI does it in one command: it creates the structure, scaffolds your first pages, and installs Playwright if it isn't there yet.
+
+## Getting started
+
+**Requirements:** Node.js **v18** or later.
+
+### New project
+
+Run in an empty folder or from any directory to scaffold into a named subfolder:
 
 ```bash
 npm init playwright-pom-start
 ```
 
-Or with a project name:
+or into a subfolder:
 
 ```bash
-npm init playwright-pom-start my-playwright-project
+npx playwright-pom my-project
 ```
 
+You'll be prompted for:
 
-
-You’ll be prompted for:
-
-1. **Language** — JavaScript or TypeScript (arrow keys + Enter). Default is JS.
-2. **Page names** — optional; space-separated, or Enter to skip. Names are normalized to PascalCase + `Page` (e.g. `dashboard` → `DashboardPage`).
+1. **Language** — JavaScript or TypeScript (arrow keys + Enter). Default is JS. Skipped if Playwright is already detected in the folder.
+2. **Page names** — optional; type names separated by spaces, or press Enter to skip. Names are normalized to PascalCase + `Page` (e.g. `dashboard` → `DashboardPage`).
 3. **Playwright** — installed automatically if missing.
 
-**Requirements:** Node.js **v18** or later.
+### Add pages to an existing project
 
-## Alternative: install then run
+Run from the root of your project, where the `pages` folder lives:
 
-```bash
-npm i playwright-pom
-npx playwright-pom
-```
-
-Or scaffold in a subfolder: `npx playwright-pom my-project`
-
-To **add more pages** to an existing project, run from the project root: 
 ```bash
 npx playwright-pom add pages
 ```
 
-## Flow
+The CLI detects your project language from existing config files or the `pages` folder contents. If it can't detect a language, it asks. If no `pages` folder exists yet, it creates one and copies `BasePage` before prompting for page names.
+
+## How it works
 
 - If Playwright is **already installed** in the folder, the CLI detects JS or TS and skips the language question.
 - Templates are copied, folders and placeholder files are created.
-- If Playwright isn’t installed yet, the CLI runs `npm init playwright@latest -- --quiet --lang=js` or `--lang=ts` to match the chosen language.
+- If Playwright isn't installed yet, the CLI runs `npm init playwright@latest -- --quiet --lang=js` or `--lang=ts` to match the chosen language.
 - If the folder already has a scaffold (e.g. `pages/BasePage.js` or `pages/BasePage.ts`), the CLI prints **"Project already set up. Skipping."** and may run `npm install`.
 
 ## Generated structure
@@ -80,6 +102,7 @@ npx playwright-pom add pages
 - Converted to PascalCase + `Page` (e.g. `checkout` → `CheckoutPage`, `userProfile` → `UserProfilePage`).
 - Invalid tokens and existing files are skipped (reported in the console).
 
+## Examples
 
 **JavaScript based output project structure**
 
@@ -104,5 +127,5 @@ npx playwright-pom add pages
 
 ## Author & license
 
-**Author:** [Gabriel Dali](https://www.linkedin.com/in/gabriel-dali-qa/)  
+**Author:** [Gabriel Dali](https://www.linkedin.com/in/gabriel-dali-qa/)
 **License:** MIT
