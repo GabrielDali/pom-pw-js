@@ -1,50 +1,76 @@
-# create-playwright-pom-start
-
-Scaffold a **Playwright Page Object Model (POM)** structure for test projects in **JavaScript** or **TypeScript** with one command. Creates a base page, optional page classes, folders, global setup/teardown, and installs Playwright when needed.
-
-## How to start
-
-From an empty folder (or where you want the project):
+<div align="center">
+  <h1>Playwright POM framework</h1>
+  <hr />
+  <p><small>An open source CLI-tool for quick start with Page Object Model project and Playwright framework</small></p>
+  <p>
+    <a href="https://www.npmjs.com/package/create-playwright-pom-start"><img src="https://img.shields.io/npm/v/create-playwright-pom-start?color=0062cc" alt="npm version" /></a>
+    <a href="https://github.com/GabrielDali/pom-pw-js/actions"><img src="https://img.shields.io/github/actions/workflow/status/GabrielDali/pom-pw-js/publish.yml?branch=main&label=CI&logo=github" alt="CI" /></a>
+    <a href="https://www.npmjs.com/package/create-playwright-pom-start"><img src="https://img.shields.io/npm/l/create-playwright-pom-start?color=006e75" alt="MIT License" /></a>
+  </p>
+</div>
 
 ```bash
 npm init playwright-pom-start
 ```
 
-Or with a project name:
+## Table of Contents
 
-```bash
-npm init playwright-pom-start my-playwright-project
-```
+1. 💡 [Why use this](#why-use-this)
+2. 🚀 [Getting started](#getting-started)
+   - 2.1 [New project](#new-project)
+   - 2.2 [Add pages to an existing project](#add-pages-to-an-existing-project)
+3. ⚙️ [How it works](#how-it-works)
+4. 🗂️ [Generated structure](#generated-structure)
+5. 🏷️ [Page naming](#page-naming)
+6. 🖼️ [Examples](#examples)
+7. 🔗 [Repository & docs](#repository--docs)
+8. 👤 [Author & license](#author--license)
 
+## Why use this
 
+Playwright gives you a powerful testing API but no folder structure. As your test suite grows, tests start reaching directly into selectors and actions, which means one UI change can break many tests instead of one. Page Object Model fixes that by keeping each page's interactions in one place. Your tests only call methods, not raw selectors.
 
-You’ll be prompted for:
+Setting up POM manually means writing the same base class, the same folder layout, and the same boilerplate on every project. This CLI does it in one command: it creates the structure, scaffolds your first pages, and installs Playwright if it isn't there yet.
 
-1. **Language** — JavaScript or TypeScript (arrow keys + Enter). Default is JS.
-2. **Page names** — optional; space-separated, or Enter to skip. Names are normalized to PascalCase + `Page` (e.g. `dashboard` → `DashboardPage`).
-3. **Playwright** — installed automatically if missing.
+## Getting started
 
 **Requirements:** Node.js **v18** or later.
 
-## Alternative: install then run
+### New project
+
+Run in an empty folder or from any directory to scaffold into a named subfolder:
 
 ```bash
-npm i playwright-pom
-npx playwright-pom
+npm init playwright-pom-start
 ```
 
-Or scaffold in a subfolder: `npx playwright-pom my-project`
+or into a subfolder:
 
-To **add more pages** to an existing project, run from the project root: 
+```bash
+npx playwright-pom my-project
+```
+
+You'll be prompted for:
+
+1. **Language** — JavaScript or TypeScript (arrow keys + Enter). Default is JS. Skipped if Playwright is already detected in the folder.
+2. **Page names** — optional; type names separated by spaces, or press Enter to skip. Names are normalized to PascalCase + `Page` (e.g. `dashboard` → `DashboardPage`).
+3. **Playwright** — installed automatically if missing.
+
+### Add pages to an existing project
+
+Run from the root of your project, where the `pages` folder lives:
+
 ```bash
 npx playwright-pom add pages
 ```
 
-## Flow
+The CLI detects your project language from existing config files or the `pages` folder contents. If it can't detect a language, it asks. If no `pages` folder exists yet, it creates one and copies `BasePage` before prompting for page names.
+
+## How it works
 
 - If Playwright is **already installed** in the folder, the CLI detects JS or TS and skips the language question.
 - Templates are copied, folders and placeholder files are created.
-- If Playwright isn’t installed yet, the CLI runs `npm init playwright@latest -- --quiet --lang=js` or `--lang=ts` to match the chosen language.
+- If Playwright isn't installed yet, the CLI runs `npm init playwright@latest -- --quiet --lang=js` or `--lang=ts` to match the chosen language.
 - If the folder already has a scaffold (e.g. `pages/BasePage.js` or `pages/BasePage.ts`), the CLI prints **"Project already set up. Skipping."** and may run `npm install`.
 
 ## Generated structure
@@ -76,6 +102,7 @@ npx playwright-pom add pages
 - Converted to PascalCase + `Page` (e.g. `checkout` → `CheckoutPage`, `userProfile` → `UserProfilePage`).
 - Invalid tokens and existing files are skipped (reported in the console).
 
+## Examples
 
 **JavaScript based output project structure**
 
@@ -100,5 +127,5 @@ npx playwright-pom add pages
 
 ## Author & license
 
-**Author:** [Gabriel Dali](https://www.linkedin.com/in/gabriel-dali-qa/)  
+**Author:** [Gabriel Dali](https://www.linkedin.com/in/gabriel-dali-qa/)
 **License:** MIT
