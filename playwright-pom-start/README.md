@@ -15,16 +15,16 @@ npm init playwright-pom-start
 
 ## Table of Contents
 
-- [Why use this](#why-use-this)
-- [Getting started](#getting-started)
-  - [New project](#new-project)
-  - [Add pages to an existing project](#add-pages-to-an-existing-project)
-- [How it works](#how-it-works)
-- [Generated structure](#generated-structure)
-- [Page naming](#page-naming)
-- [Examples](#examples)
-- [Repository & docs](#repository--docs)
-- [Author & license](#author--license)
+1. 💡 [Why use this](#why-use-this)
+2. 🚀 [Getting started](#getting-started)
+   - 2.1 [New project](#new-project)
+   - 2.2 [Add pages to an existing project](#add-pages-to-an-existing-project)
+3. ⚙️ [How it works](#how-it-works)
+4. 🗂️ [Generated structure](#generated-structure)
+5. 🏷️ [Page naming](#page-naming)
+6. 🖼️ [Examples](#examples)
+7. 🔗 [Repository & docs](#repository--docs)
+8. 👤 [Author & license](#author--license)
 
 ## Why use this
 
