@@ -35,7 +35,10 @@ npx playwright-pom
 
 Or scaffold in a subfolder: `npx playwright-pom my-project`
 
-To **add more pages** to an existing project, run from the project root: `npx playwright-pom add pages`.
+To **add more pages** to an existing project, run from the project root: 
+```bash
+npx playwright-pom add pages
+```
 
 ## Flow
 
