@@ -51,6 +51,16 @@ npx playwright-pom my-playwright-project
 
 If the folder already has a scaffold (e.g. `pages/BasePage.js` or `pages/BasePage.ts`), the CLI prints **"Project already set up. Skipping."** and, if there’s a `package.json`, runs `npm install` so you see the usual “up to date” / “packages audited” output.
 
+### Add pages to an existing project
+
+From the **project root** (where the `pages/` folder lives), run:
+
+```bash
+npx playwright-pom add pages
+```
+
+You’ll be prompted to type page names (space-separated) or Enter to skip. Do **not** type `add pages` in the terminal by itself—that runs a shell command called `add` and will report “command not found.” Always use the full command above.
+
 ## Generated structure
 
 ```
