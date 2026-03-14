@@ -5,7 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { askLanguage } from "../lib/prompt.js";
 import { getProjectPath } from "../lib/helpers.js";
-import { runScaffold, isAlreadyScaffolded } from "../lib/scaffold.js";
+import { runScaffold, isAlreadyScaffolded, runAddPages } from "../lib/scaffold.js";
 import { detectPlaywrightLang, runInstallIfPresent } from "../lib/playwright.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -13,6 +13,12 @@ const packageRoot = path.join(__dirname, "..");
 
 async function main() {
   const args = process.argv.slice(2);
+
+  if (args[0] === "add" && args[1] === "pages") {
+    const success = await runAddPages(process.cwd());
+    process.exit(success ? 0 : 1);
+  }
+
   let projectName = args[0];
 
   const currentPath = process.cwd();
