@@ -6,7 +6,7 @@
     <a href="https://www.npmjs.com/package/create-playwright-pom-start"><img src="https://img.shields.io/npm/v/create-playwright-pom-start?color=0062cc" alt="npm version" /></a>
     <a href="https://github.com/GabrielDali/pom-pw-js/actions"><img src="https://img.shields.io/github/actions/workflow/status/GabrielDali/pom-pw-js/publish.yml?branch=main&label=CI&logo=github" alt="CI" /></a>
     <a href="https://coveralls.io/github/GabrielDali/pom-pw-js"><img src="https://img.shields.io/coveralls/github/GabrielDali/pom-pw-js?logo=coveralls" alt="coverage" /></a>
-    <a href="https://security.snyk.io/package/npm/create-playwright-pom-start"><img src="https://img.shields.io/snyk/vulnerabilities/npm/create-playwright-pom-start" alt="Snyk vulnerabilities" /></a>
+    <a href="https://snyk.io/test/npm/create-playwright-pom-start"><img src="https://snyk.io/test/npm/create-playwright-pom-start/badge.svg" alt="Snyk vulnerabilities" /></a>
     <a href="https://www.npmjs.com/package/create-playwright-pom-start"><img src="https://img.shields.io/npm/l/create-playwright-pom-start?color=006e75" alt="MIT License" /></a>
   </p>
 </div>
