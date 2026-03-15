@@ -20,12 +20,13 @@ async function main() {
   }
 
   let projectName = args[0];
-
   const currentPath = process.cwd();
-  const usingCurrentDir = !projectName;
+  const dirBasename = path.basename(currentPath);
+  const singleArgIsCurrentDir = projectName === dirBasename;
+  const usingCurrentDir = !projectName || singleArgIsCurrentDir;
 
-  if (!projectName) {
-    projectName = path.basename(currentPath);
+  if (!projectName || singleArgIsCurrentDir) {
+    projectName = dirBasename;
   }
 
   const targetPath = usingCurrentDir ? currentPath : getProjectPath(currentPath, projectName);
