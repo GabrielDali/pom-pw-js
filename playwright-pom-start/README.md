@@ -18,7 +18,7 @@ npm init playwright-pom-start
 
 ## Table of Contents
 
-1. 💡 [Why use this](#why-use-this)
+1. 💡 [Why Playwright POM?](#why-use-this)
 2. 🚀 [Getting started](#getting-started)
    - 2.1 [New project](#new-project)
    - 2.2 [Add pages to an existing project](#add-pages-to-an-existing-project)
