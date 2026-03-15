@@ -1,6 +1,6 @@
 {
     "name": "create-playwright-pom-start",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "Scaffold a Playwright POM project (run via npm init playwright-pom-start)",
     "keywords": [
         "playwright",
@@ -30,6 +30,6 @@
         "url": "https://github.com/GabrielDali/pom-pw-js.git"
     },
     "dependencies": {
-        "playwright-pom": "1.0.8"
+        "playwright-pom": "1.0.10"
     }
 }
