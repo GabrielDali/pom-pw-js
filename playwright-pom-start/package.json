@@ -30,6 +30,6 @@
         "url": "https://github.com/GabrielDali/pom-pw-js.git"
     },
     "dependencies": {
-        "playwright-pom": "1.0.10"
+        "playwright-pom": "1.0.11"
     }
 }
