@@ -26,13 +26,15 @@ npm init playwright-pom-start
 7. 🔗 [Repository & docs](#repository--docs)
 8. 👤 [Author & license](#author--license)
 
-## Why use this
+## 💡 Why Playwright POM?
 
-Playwright gives you a powerful testing API but no folder structure. As your test suite grows, tests start reaching directly into selectors and actions, which means one UI change can break many tests instead of one. Page Object Model fixes that by keeping each page's interactions in one place. Your tests only call methods, not raw selectors.
+- **Zero setup time:** One command creates your entire framework structure, folders, base classes, config files. No more copy-pasting from old projects.
+- **Smart and flexible:** Installs Playwright if needed, lets you pick JavaScript or TypeScript, and scaffolds page classes on the spot or later. Yes, batteries included.
+- **Works with existing projects:** Already have a Playwright repo? Add new page objects anytime without touching your current setup.
 
-Setting up POM manually means writing the same base class, the same folder layout, and the same boilerplate on every project. This CLI does it in one command: it creates the structure, scaffolds your first pages, and installs Playwright if it isn't there yet.
+> **Note:** All generated code uses ES module syntax (import/export). No require(), no CommonJS.
 
-## Getting started
+## 🚀 Getting started
 
 **Requirements:** Node.js **v18** or later.
 
@@ -44,15 +46,10 @@ Run in an empty folder or from any directory to scaffold into a named subfolder:
 npm init playwright-pom-start
 ```
 
-or into a subfolder:
 
-```bash
-npx playwright-pom my-project
-```
+You'll be asked for:
 
-You'll be prompted for:
-
-1. **Language** — JavaScript or TypeScript (arrow keys + Enter). Default is JS. Skipped if Playwright is already detected in the folder.
+1. **Language** — JavaScript or TypeScript (arrow keys + Enter). Default is JS. Skipped if Playwright and language are already detected in the project.
 2. **Page names** — optional; type names separated by spaces, or press Enter to skip. Names are normalized to PascalCase + `Page` (e.g. `dashboard` → `DashboardPage`).
 3. **Playwright** — installed automatically if missing.
 
@@ -66,14 +63,14 @@ npx playwright-pom add pages
 
 The CLI detects your project language from existing config files or the `pages` folder contents. If it can't detect a language, it asks. If no `pages` folder exists yet, it creates one and copies `BasePage` before prompting for page names.
 
-## How it works
+## ⚙️ How it works
 
 - If Playwright is **already installed** in the folder, the CLI detects JS or TS and skips the language question.
 - Templates are copied, folders and placeholder files are created.
 - If Playwright isn't installed yet, the CLI runs `npm init playwright@latest -- --quiet --lang=js` or `--lang=ts` to match the chosen language.
 - If the folder already has a scaffold (e.g. `pages/BasePage.js` or `pages/BasePage.ts`), the CLI prints **"Project already set up. Skipping."** and may run `npm install`.
 
-## Generated structure
+## 🗂️ Generated structure
 
 ```
 <project>/
@@ -91,18 +88,37 @@ The CLI detects your project language from existing config files or the `pages` 
 └── .gitignore              # includes states
 ```
 
+All page classes extend **BasePage** and pass the Playwright `page` to the constructor. Example (JavaScript):
+
+```js
+import BasePage from "./BasePage.js";
+
+class DashboardPage extends BasePage {
+  constructor(page) {
+    super(page);
+  }
+}
+
+export default DashboardPage;
+```
+
+For TypeScript, the same pattern is used with `import type { Page } from "@playwright/test"` and `constructor(page: Page)`.
+
 - **BasePage** — Shared class with the Playwright `page`; other pages extend it.
 - **utils/logger** — Placeholder for your logger.
 - **utils/auth** — For auth-related helpers.
+- **fixtures/** — Add your fixtures in this folder.
+- **constants/** — Add your constants files here.
+- **states/** — For storage state files, already added into .gitignore file
 - **global-setup** / **global-teardown** — Default async functions; wire them in `playwright.config.*` if you use them.
 
-## Page naming
+## 🏷️ Page naming
 
 - Letters only (no numbers, `.js`/`.ts`, or symbols).
 - Converted to PascalCase + `Page` (e.g. `checkout` → `CheckoutPage`, `userProfile` → `UserProfilePage`).
 - Invalid tokens and existing files are skipped (reported in the console).
 
-## Examples
+## 🖼️ Examples
 
 **JavaScript based output project structure**
 
@@ -120,12 +136,12 @@ The CLI detects your project language from existing config files or the `pages` 
 
 ![TypeScript based output created page example](https://raw.githubusercontent.com/GabrielDali/pom-pw-js/main/assets/04.png)
 
-## Repository & docs
+## 🔗 Repository & docs
 
 - **GitHub:** [github.com/GabrielDali/pom-pw-js](https://github.com/GabrielDali/pom-pw-js)
 - **Main package (playwright-pom):** [npmjs.com/package/playwright-pom](https://www.npmjs.com/package/playwright-pom)
 
-## Author & license
+## 👤 Author & license
 
 **Author:** [Gabriel Dali](https://www.linkedin.com/in/gabriel-dali-qa/)
 **License:** MIT
