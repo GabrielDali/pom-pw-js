@@ -11,6 +11,7 @@
   </p>
 </div>
 
+Install the package and run
 ```bash
 npm init playwright-pom-start
 ```
