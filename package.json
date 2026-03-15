@@ -1,6 +1,6 @@
 {
     "name": "playwright-pom",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "CLI generator for a Playwright JS/TS framework starter",
     "type": "module",
     "engines": {
@@ -20,7 +20,8 @@
         "test": "vitest run",
         "test:watch": "vitest",
         "test:coverage": "vitest run --coverage",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "security": "npx snyk test"
     },
     "keywords": [
         "playwright",
