@@ -11,7 +11,7 @@
   </p>
 </div>
 
-Install the package and run
+
 ```bash
 npm init playwright-pom-start
 ```
@@ -31,8 +31,8 @@ npm init playwright-pom-start
 
 ## 💡 Why Playwright POM?
 
-- **Zero setup time:** One command creates your entire framework structure, folders, base classes, config files. No more copy-pasting from old projects.
-- **Smart and flexible:** Installs Playwright if needed, lets you pick JavaScript or TypeScript, and scaffolds page classes on the spot or later. Yes, batteries included.
+- **Zero setup time:** One command creates your entire framework structure, folders, base classes, config files. No more manual setup or copy-pasting from old projects.
+- **Smart and flexible:** Installs Playwright if needed, lets you pick JavaScript or TypeScript, and scaffolds page classes on the spot or later. **Yes, batteries included.**
 - **Works with existing projects:** Already have a Playwright repo? Add new page objects anytime without touching your current setup.
 
 > **Note:** All generated code uses ES module syntax (import/export). No require(), no CommonJS.
