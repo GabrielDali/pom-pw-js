@@ -13,6 +13,7 @@ coverage
 # Tests and test artifacts
 vitest.config.* 
 assets/
+e2e/
 
 # Git and CI
 .git
