@@ -31,4 +31,5 @@ Thumbs.db
 #Archives
 *.tgz
 
-.cursor
+.cursor/
+.claude/
