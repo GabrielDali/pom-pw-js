@@ -1,0 +1,43 @@
+name: Nightly tests
+
+on:
+  schedule:
+
+    - cron: "0 23 * * *"
+    - cron: "0 0 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: nightly-tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Guard - only run at midnight
+        shell: bash
+        run: |
+          hour="$(TZ=Europe/London date +%H)"
+          if [ "$hour" != "00" ]; then
+            echo "Skipping: not midnight Europe/London (hour=$hour)."
+            exit 0
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
