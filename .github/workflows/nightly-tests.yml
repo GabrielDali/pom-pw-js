@@ -14,10 +14,6 @@ concurrency:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        node: [18, 20]
 
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +29,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: "22"
 
       - name: Install dependencies
         run: npm install
